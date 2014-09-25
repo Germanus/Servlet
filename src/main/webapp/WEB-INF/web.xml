@@ -3,16 +3,141 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
 
-    <servlet>
-        <servlet-name>UsingInitMethod</servlet-name>
-        <servlet-class>UsingInitMethod</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>UsingInitMethod</servlet-name>
-        <url-pattern>/UsingInitMethod</url-pattern>
-    </servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
 
+	<servlet>
+		<servlet-name>UsingInitMethod</servlet-name>
+		<servlet-class>my.ilya.redirect.UsingInitMethod</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RedirectNewLocation</servlet-name>
+		<servlet-class>my.ilya.redirect.RedirectNewLocation</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RedirectWithLinkServlet</servlet-name>
+		<servlet-class>my.ilya.redirect.RedirectWithLinkServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UrlRedirect</servlet-name>
+		<servlet-class>my.ilya.redirect.UrlRedirect</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UrlRewrite</servlet-name>
+		<servlet-class>my.ilya.redirect.UrlRewrite</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>CallAnotherUrl</servlet-name>
+		<servlet-class>my.ilya.redirect.CallAnotherUrl</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AutoServlet</servlet-name>
+		<servlet-class>my.ilya.redirect.AutoServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>ForwardCall</servlet-name>
+		<servlet-class>my.ilya.redirect.ForwardCall</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UsingSessions</servlet-name>
+		<servlet-class>my.ilya.sessions.UsingSessions</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SimpleSession</servlet-name>
+		<servlet-class>my.ilya.sessions.SimpleSession</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>UsingInitMethod</servlet-name>
+		<url-pattern>/UsingInitMethod</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RedirectNewLocation</servlet-name>
+		<url-pattern>/RedirectNewLocation</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RedirectWithLinkServlet</servlet-name>
+		<url-pattern>/RedirectWithLinkServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UrlRedirect</servlet-name>
+		<url-pattern>/UrlRedirect</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UrlRewrite</servlet-name>
+		<url-pattern>/UrlRewrite</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>CallAnotherUrl</servlet-name>
+		<url-pattern>/CallAnotherUrl</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ForwardCall</servlet-name>
+		<url-pattern>/ForwardCall</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>AutoServlet</servlet-name>
+		<url-pattern>/AutoServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UsingSessions</servlet-name>
+		<url-pattern>/UsingSessions</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>SimpleSession</servlet-name>
+		<url-pattern>/SimpleSession</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<listener-class>my.ilya.sessions.SessionLogger</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>my.ilya.sessions.SessionListen</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>my.ilya.sessions.SessionAttributeListen</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>my.ilya.sessions.SessionFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>LoggingFilter</filter-name>
+		<filter-class>my.ilya.log.LoggingFilter</filter-class>
+	</filter>	
+	
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<servlet-name>UsingSessions</servlet-name>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>LoggingFilter</filter-name>
+		<servlet-name>*</servlet-name>
+	</filter-mapping>
 
 </web-app>

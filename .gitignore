@@ -2,6 +2,7 @@
 target
 .project
 .classpath
+.settings
 *.class
 *.jar
 *.ipr
@@ -9,3 +10,20 @@ target
 *.iws
 *.log
 .checkstyle
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/

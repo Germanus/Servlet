@@ -1,3 +1,4 @@
+package my.ilya.redirect;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Kazakevich Ilya
  */
 public class UsingInitMethod extends HttpServlet {
-    String msg = "";
+   
+	private static final long serialVersionUID = 1L;
+	String msg = "";
 
     public void init(ServletConfig config) {
         msg = "Hello from Java servlets!";

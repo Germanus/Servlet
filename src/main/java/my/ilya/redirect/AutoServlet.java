@@ -1,0 +1,38 @@
+package my.ilya.redirect;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+public class AutoServlet extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		// client browser will request the page every 60 seconds
+		HttpSession session = request.getSession();
+		Long times = (Long) session.getAttribute("times");
+		if (times == null) {
+			session.setAttribute("times", new Long(0));
+		}
+		long temp = 1;
+		if (times != null) {
+			temp = (times.longValue()) + 1;
+		}
+		if(temp<5){
+			response.addHeader("Refresh", "15");
+		}
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<html><head><title>Client Refresh</title></head><body>");
+		out.println("You've viewed this page " + temp + " times.");
+		session.setAttribute("times", new Long(temp));
+		out.println("</body></html>");
+	}
+
+}
